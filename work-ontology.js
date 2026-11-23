@@ -29,6 +29,15 @@
 //   ],
 
 module.exports = {
-  classes: [],
-  relations: [],
+  classes: [
+    { id: 'Vent',    label: '창',   list: 'vents',    desc: '측창과 천창. 바라보는 방위로 바람받이인지 판단한다' },
+    { id: 'Rule',    label: '규칙', list: 'rules',    desc: '실내온도와 풍향·풍속에 따라 창을 얼마나 열지 정한 것' },
+    { id: 'Command', label: '명령', list: 'commands', desc: 'MQTT로 보낸 제어 명령과 그 결과' },
+    { id: 'Day',     label: '날짜', desc: '명령을 보낸 날' },
+  ],
+  relations: [
+    { id: 'COMMAND_TO', label: '대상 창',   from: ['Command'], to: ['Vent'], made: 'derived', field: 'Command.vent', desc: '이 명령이 움직이는 창' },
+    { id: 'BY_RULE',    label: '근거 규칙', from: ['Command'], to: ['Rule'], made: 'derived', field: 'Command.rule', desc: '이 명령을 만든 규칙(수동 조작이면 없음)' },
+    { id: 'SENT_ON',    label: '보낸 날',   from: ['Command'], to: ['Day'],  made: 'derived', field: 'Command.day' },
+  ],
 };

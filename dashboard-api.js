@@ -20,6 +20,7 @@ const relgraph = require('./graph-index.js');   // 업무 항목·지식·문서
 const codexSettings = require('./codex-settings.js');
 const permissionMode = require('./permission-mode.js');
 const { createAgentLog } = require('./agent-log.js');
+const { createGreenhouse } = require('./greenhouse/index.js');   // Work: 온실 환기(규칙 · MQTT 명령 · 재시도)
 
 // ---- System: 재시작 ----
 const STARTED_AT = new Date().toISOString();
@@ -340,10 +341,26 @@ function createDashboardApi(core, opts) {
   }
   const saveRequests = (s) => writeJsonAtomic(REQUESTS_FILE, s);
 
+  // ---- 온실 환기(Work) ----
+  let _broadcast = () => {};   // 요청 밖(제어 주기)에서 화면에 알릴 때 — 첫 라우트 호출에서 채운다
+  const greenhouse = createGreenhouse({
+    file: path.join(path.dirname(EVOLVE_FILE), 'greenhouse.json'),
+    loadData: () => loadData(), saveData: (s) => saveData(s),
+    readJson: (f) => readJsonStrict(f, () => ({})), writeJson: writeJsonAtomic,
+    changed: (version) => _broadcast({ kind: 'data', version }),
+    request: (x) => {          // 명령이 끝내 실패하면 사람에게 확인을 부탁한다(같은 부탁이 열려 있으면 다시 만들지 않는다)
+      const rq = loadRequests(), title = clip(x.title, 200);
+      if (rq.requests.some((r) => ['open', 'answered'].includes(r.status) && r.title === title)) return;
+      rq.requests.push({ id: rq.next++, kind: x.kind, title, desc: '', options: [], ref: x.ref || '', ws: curWs(), ...plainFields(x), status: 'open', answer: '', at: new Date().toISOString() });
+      while (rq.requests.length > 100) { const i = rq.requests.findIndex((r) => r.status !== 'open'); rq.requests.splice(i < 0 ? 0 : i, 1); }
+      rq.version = (rq.version || 1) + 1; saveRequests(rq); _broadcast({ kind: 'requests', version: rq.version });
+    },
+  }, { simPort: Number(process.env.ANA_GH_SIM_PORT || 18830) });
+
   // feed 참조(bootstrap에서 주입) — nextPid가 원장 pid를 보게
   let _feedRef = [];
   const core_feed = () => _feedRef;
-  function bootstrap(feed) { _feedRef = feed; }
+  function bootstrap(feed) { _feedRef = feed; if (!process.env.ANA_TEST && process.env.ANA_GH !== '0') greenhouse.start(); }
 
   // ---- diff 검증·적용 ----
   // diff는 work-ontology.js가 선언한 종류의 배열(list)에 적용된다: add는 list가 필요하고, update·remove는 id로 모든 배열에서 찾는다
@@ -490,6 +507,10 @@ function createDashboardApi(core, opts) {
   async function routes(req, res, url, ctx) {
     const p = url.pathname;
     const { commit, broadcast, csrfOk, jsonBody } = ctx;
+    _broadcast = broadcast;
+
+    // ---- 온실 환기(Work) ----
+    if (p.startsWith('/api/gh/')) return greenhouse.routes(req, res, p, { sendJson, csrfOk, jsonBody, actor, audit });
 
     // ---- 내 계정 ----
     if (p === '/api/me' && req.method === 'GET') {

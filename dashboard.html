@@ -564,6 +564,38 @@ body.chat-collapsed .chat-open-btn { display: inline-flex; }
 .sk-edit { position: absolute; margin: 0; padding: 0 2px; border: 1.5px dashed var(--acc, var(--blue)); border-radius: 4px; background: rgba(255,255,255,.9); outline: none; resize: none; overflow: hidden; white-space: pre; font-family: system-ui, -apple-system, sans-serif; font-weight: 600; line-height: 1.25; min-width: 60px; } .sketch-paper canvas { display: block; cursor: crosshair; touch-action: none; }
 .sk-hint { text-align: center; color: #fff; font-size: 12.5px; opacity: .9; }
 body.sketching { overflow: hidden; }
+/* Work: 온실 환기 */
+.gh-bar { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; margin: 0 0 12px; } .gh-bar .sp { flex: 1; }
+.gh-bar .stseg { margin: 0; } .gh-pill { display: inline-flex; align-items: center; gap: 6px; font-size: 12.5px; font-weight: 700; color: var(--text-sub); }
+.gh-pill i { width: 8px; height: 8px; border-radius: 999px; background: var(--danger); } .gh-pill.ok i { background: var(--green); }
+.gh-alarm { display: flex; align-items: center; gap: 10px; padding: 10px 14px; margin: 0 0 8px; border-radius: var(--r-sm); font-size: 13.5px; font-weight: 600; background: var(--danger-bg); color: var(--danger); }
+.gh-alarm.warn { background: var(--warm-bg); color: var(--warm-fg); } .gh-alarm span { flex: 1; min-width: 0; overflow-wrap: anywhere; }
+.gh-top { display: grid; grid-template-columns: minmax(0, 1fr) 210px; gap: 12px; margin-bottom: 12px; }
+.gh-house { padding: 12px; } .gh-house svg { display: block; width: 100%; height: auto; }
+.gh-nums { display: grid; gap: 12px; } .gh-num { padding: 12px 16px; } .gh-num b { display: block; font-size: 26px; font-weight: 800; letter-spacing: -0.03em; font-variant-numeric: tabular-nums; line-height: 1.25; }
+.gh-num b small { font-size: 14px; font-weight: 700; color: var(--text-weak); margin-left: 3px; } .gh-num span, .gh-sub { font-size: 12.5px; color: var(--text-weak); font-weight: 600; } .gh-num.off b { color: var(--text-weak); }
+.gh-vents { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr)); gap: 12px; margin-bottom: 16px; }
+.gh-vent { padding: 14px 16px; min-width: 0; } .gh-vent h3 { display: flex; align-items: center; gap: 8px; font-size: 15px; font-weight: 800; } .gh-vent h3 b { margin-left: auto; font-size: 19px; font-variant-numeric: tabular-nums; }
+.gh-tag { font-size: 11px; font-weight: 800; padding: 2px 8px; border-radius: 999px; background: var(--surface-2); color: var(--text-sub); white-space: nowrap; }
+.gh-tag.wind { background: var(--warm-bg); color: var(--warm-fg); } .gh-tag.done { background: var(--success-bg); color: var(--success); } .gh-tag.failed { background: var(--danger-bg); color: var(--danger); } .gh-tag.sent, .gh-tag.retrying { background: var(--blue-weak); color: var(--blue-700); }
+.gh-track { position: relative; height: 8px; border-radius: 999px; background: var(--line-2); margin: 10px 0 8px; } .gh-track i { position: absolute; inset: 0 auto 0 0; border-radius: 999px; background: var(--blue); transition: width .4s; }
+.gh-track u { position: absolute; top: -4px; width: 2px; height: 16px; margin-left: -1px; background: var(--text); } .gh-why { font-size: 12.5px; color: var(--text-sub); min-height: 38px; }
+.gh-man { display: flex; align-items: center; gap: 8px; margin-top: 8px; } .gh-man input { flex: 1; min-width: 0; accent-color: var(--acc-strong); } .gh-man output { width: 44px; text-align: right; font-size: 13px; font-weight: 700; font-variant-numeric: tabular-nums; }
+.gh-ask { margin-top: 8px; font-size: 12.5px; color: var(--danger); font-weight: 600; } .gh-ask div { display: flex; gap: 6px; margin-top: 6px; }
+.gh-card { padding: 16px; margin-bottom: 14px; } .gh-card > h3 { font-size: 15px; font-weight: 800; margin-bottom: 4px; } .gh-card > p { font-size: 13px; color: var(--text-sub); margin-bottom: 12px; }
+.gh-form { display: grid; grid-template-columns: repeat(auto-fill, minmax(190px, 1fr)); gap: 12px 14px; } .gh-form label { display: grid; gap: 4px; font-size: 12.5px; font-weight: 700; color: var(--text-sub); min-width: 0; }
+.gh-in { width: 100%; height: 38px; padding: 0 11px; border: 1px solid var(--line); border-radius: var(--r-xs); background: var(--surface-2); color: var(--text); font: inherit; font-size: 14px; } .gh-form input[type=range] { width: 100%; accent-color: var(--acc-strong); height: 38px; margin: 0; }
+.gh-ok { height: 36px; padding: 0 16px; border-radius: 999px; font-size: 13.5px; font-weight: 700; background: var(--acc, var(--blue)); color: #fff; } .gh-ok:disabled { opacity: .45; } .gh-acts { display: flex; gap: 8px; align-items: center; flex-wrap: wrap; margin-top: 14px; }
+.gh-msg { font-size: 13px; font-weight: 600; color: var(--text-sub); } .gh-msg.bad { color: var(--danger); }
+.gh-rule { display: flex; gap: 12px; align-items: flex-start; padding: 12px 16px; border-top: 1px solid var(--line-2); } .gh-rule:first-child { border-top: 0; } .gh-rule > div { flex: 1; min-width: 0; } .gh-rule b { font-size: 14px; } .gh-rule p { font-size: 13px; color: var(--text-sub); } .gh-rule.off > div { opacity: .5; }
+.gh-rule button { flex: 0 0 auto; }
+.gh-q h3 { font-size: 18px; font-weight: 800; margin: 6px 0 2px; } .gh-q .stseg { flex-wrap: wrap; } .gh-q .gh-in { max-width: 180px; font-size: 17px; height: 44px; } .gh-qrow { display: flex; gap: 10px; align-items: center; margin-top: 12px; font-weight: 700; }
+.gh-steps { height: 4px; border-radius: 99px; background: var(--line-2); overflow: hidden; } .gh-steps i { display: block; height: 100%; background: var(--acc); }
+.gh-cmd { padding: 12px 16px; border-top: 1px solid var(--line-2); } .gh-cmd:first-child { border-top: 0; } .gh-cmd summary { display: flex; flex-wrap: wrap; gap: 4px 10px; align-items: center; cursor: pointer; font-size: 13.5px; list-style: none; } .gh-cmd summary::-webkit-details-marker { display: none; } .gh-cmd time { color: var(--text-weak); font-size: 12.5px; font-variant-numeric: tabular-nums; }
+.gh-cmd .gh-sub { flex-basis: 100%; } .gh-code { margin: 8px 0 0; padding: 10px 12px; border-radius: var(--r-xs); background: var(--surface-2); font: 12px/1.5 ui-monospace, Menlo, Consolas, monospace; overflow-x: auto; white-space: pre; }
+.gh-chk { display: flex !important; grid-auto-flow: column; align-items: center; gap: 8px !important; }
+@media (max-width: 620px) { .gh-top { grid-template-columns: minmax(0, 1fr); } .gh-nums { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px; } .gh-num { padding: 10px 12px; } .gh-num b { font-size: 21px; }
+  #workView .gh-bar .stseg button { flex: 0 0 auto; width: auto; min-width: 60px; height: 40px; padding: 0 14px; font-size: 13px; } }
 /* Work: 처음엔 비어 있다 */
 .work-empty { padding: 28px 26px; text-align: center; margin-top: 8px; } .work-empty[hidden] { display: none; }
 .work-empty h2 { font-size: 19px; font-weight: 800; margin: 0 0 8px; } .work-empty p { color: var(--text-sub); max-width: 520px; margin: 0 auto 18px; line-height: 1.6; }
@@ -1238,7 +1270,46 @@ html.kb-open .chat-dock .composer { margin-bottom: 2px; }
 
   <!-- Work: 이 ANA가 하는 일의 화면. 처음엔 비어 있다 — PRD에 적은 대로 에이전트가 만든다(도메인 ANA는 여기에 자기 화면을 둔다) -->
   <section class="view" id="workView" role="tabpanel"><div class="wrap">
-    <div id="workArea"></div>
+    <div id="workArea">
+      <nav class="subtabs" data-sub="work" role="tablist" aria-label="Work"></nav>
+      <div data-subsec="live">
+        <div class="gh-bar"><div class="stseg" id="ghMode"><button data-m="auto">자동</button><button data-m="manual">수동</button></div><span class="gh-pill" id="ghConn"><i></i><span></span></span><span class="sp"></span><span class="gh-msg" id="ghMsg" role="status"></span></div>
+        <div id="ghAlarms"></div>
+        <div class="card gh-card" id="ghNoRule" hidden><h3>아직 규칙이 없습니다</h3><p>질문 11개에 답하면 온도·풍향·풍속에 따라 창을 움직이는 규칙이 만들어집니다. 그 전에는 창을 움직이지 않습니다.</p><button class="gh-ok" data-iv>규칙 인터뷰 시작</button></div>
+        <div class="gh-top"><div class="card gh-house" id="ghHouse"></div>
+          <div class="gh-nums"><div class="card gh-num" id="ghTemp"><span>실내온도</span><b></b></div><div class="card gh-num" id="ghWind"><span>외부 풍속</span><b></b></div><div class="card gh-num" id="ghDir"><span>외부 풍향</span><b></b></div></div></div>
+        <div class="gh-vents" id="ghVents"></div>
+        <div class="card gh-card" id="ghSim" hidden><h3>시뮬레이터</h3><p>가상 온실의 날씨와 고장을 바꿔 규칙과 재시도를 확인합니다. 실제 창은 움직이지 않습니다.</p>
+          <div class="gh-form">
+            <label><span>실내온도 <output></output>℃</span><input type="range" data-sim="fixedIndoor" min="0" max="45" step="0.5"></label>
+            <label><span>외부 온도 <output></output>℃</span><input type="range" data-sim="outdoor" min="-20" max="45" step="0.5"></label>
+            <label><span>햇빛 <output></output>%</span><input type="range" data-sim="sun" min="0" max="100"></label>
+            <label><span>풍속 <output></output>m/s</span><input type="range" data-sim="windSpeed" min="0" max="20" step="0.5"></label>
+            <label><span>풍향 <output></output></span><input type="range" data-sim="windDir" min="0" max="359"></label>
+            <label class="gh-chk"><input type="checkbox" data-sim="fix"> 실내온도를 직접 정하기</label>
+            <label class="gh-chk"><input type="checkbox" data-sim="sensorOn"> 센서 켜기</label>
+          </div>
+          <div class="gh-form" id="ghFaults" style="margin-top:14px"></div></div>
+      </div>
+      <div data-subsec="rules">
+        <div class="card gh-card gh-q" id="ghIv" hidden></div>
+        <div id="ghRuleBox">
+          <div class="toolbar"><span class="cnt" id="ghRuleCnt"></span><span class="sp"></span><button class="ib-btn" data-iv>규칙 인터뷰</button></div>
+          <div class="card" id="ghRules"></div>
+          <div class="card gh-card" style="margin-top:14px"><h3>규칙 시험</h3><p>이 날씨라면 어떻게 움직일지 미리 봅니다. 명령은 보내지 않습니다.</p>
+            <div class="gh-form"><label>실내온도 (℃)<input class="gh-in" type="number" id="ghPt" value="28" step="0.5"></label><label>풍속 (m/s)<input class="gh-in" type="number" id="ghPw" value="3" step="0.5"></label><label>풍향<select class="gh-in" id="ghPd"></select></label></div>
+            <div class="gh-acts"><button class="gh-ok" id="ghPv">시험하기</button></div><div id="ghPvOut"></div></div>
+        </div>
+      </div>
+      <div data-subsec="commands"><div class="card" id="ghCmds"></div></div>
+      <div data-subsec="settings">
+        <div class="card gh-card"><h3>MQTT 연결</h3><p>실제 브로커로 바꾸면 수동 모드로 시작합니다. 상태를 확인한 뒤 자동으로 바꿔 주세요.</p>
+          <div class="gh-form"><label>연결<select class="gh-in" data-set="mqttKind"><option value="sim">내장 시뮬레이터</option><option value="external">실제 브로커</option></select></label><label>브로커 주소<input class="gh-in" data-set="url" placeholder="mqtt://192.168.0.10:1883"></label><label>아이디<input class="gh-in" data-set="username" autocomplete="off"></label><label>비밀번호<input class="gh-in" data-set="password" type="password" autocomplete="new-password"></label><label>토픽 앞부분<input class="gh-in" data-set="base"></label></div>
+          <pre class="gh-code" id="ghTopics"></pre></div>
+        <div class="card gh-card"><h3>제어와 재시도</h3><p>창이 실제로 움직이는 속도에 맞춰 주세요.</p><div class="gh-form" id="ghCtl"></div></div>
+        <div class="gh-acts"><button class="gh-ok" id="ghSave">저장</button><span class="gh-msg" id="ghSetMsg" role="status"></span></div>
+      </div>
+    </div>
     <div class="card work-empty" id="workEmpty">
       <!-- PRD가 없을 때: Work는 PRD에서 나오므로 PRD로 보낸다(같은 시작 버튼을 두 곳에 두지 않는다) -->
       <div data-wstate="noprd">
@@ -1796,6 +1867,7 @@ $('evoAnalyze').onclick = () => askEvolveAgent($('evoAnalyze'));
    [data-subsec]는 그 갈래의 내용. */
 const STATUS_TABS = [['wait', 'Waiting'], ['doing', 'In progress'], ['done', 'Done']];
 var SUBTABS = {
+  work: [['live', '모니터'], ['rules', '규칙'], ['commands', '명령'], ['settings', '설정']],
   requests: STATUS_TABS,
   evolve: STATUS_TABS,
   prd: [['current', 'Current'], ['history', 'History']],
@@ -4485,6 +4557,183 @@ if (window.visualViewport) window.visualViewport.addEventListener('resize', () =
    모든 선언이 끝난 뒤 실행한다. 위쪽에서 부르면 아직 초기화되지 않은 let을 건드려
    예외가 나고, 그 예외가 스크립트 나머지를 통째로 중단시킨다(=화면이 죽는다). */
 setMode((() => { try { return localStorage.getItem('ana-mode') === '1' ? 'ana' : 'normal'; } catch { return 'normal'; } })());
+</script>
+<script>
+/* ================= Work: 온실 환기 =================
+   서버(greenhouse/)가 판단·발행·재시도를 하고, 이 화면은 상태를 보여 주고 사람의 조작을 전한다. */
+(() => {
+  const $ = (id) => document.getElementById(id), esc = escapeHtml;
+  const DIRS = ['북', '북동', '동', '남동', '남', '남서', '서', '북서'], dirName = (d) => DIRS[Math.round(d / 45) % 8];
+  const post = async (path, body) => { const r = await fetch('/api/gh/' + path, { method: 'POST', headers: { 'content-type': 'application/json' }, body: JSON.stringify(body) }); const j = await r.json().catch(() => ({})); if (!r.ok) throw Object.assign(new Error(j.error || '처리하지 못했습니다'), j); return j; };
+  let S = null, busy = false, iv = null, setFilled = false, simFilled = false, simAt = 0, msgT = null;
+  const say = (m) => { $('ghMsg').textContent = m; clearTimeout(msgT); msgT = setTimeout(() => { $('ghMsg').textContent = ''; }, 5000); };
+  const html = (el, h) => { if (el._h !== h) { el._h = h; el.innerHTML = h; } };   // 바뀔 때만 다시 그린다
+  const hm = (iso) => new Date(iso).toLocaleTimeString('en-GB');
+
+  async function refresh() {
+    if (busy || document.hidden || !$('workView').classList.contains('on')) return;
+    busy = true;
+    try { const r = await fetch('/api/gh/state', { cache: 'no-store' }); if (r.ok) { S = await r.json(); render(); } else throw 0; }
+    catch { html($('ghAlarms'), '<div class="gh-alarm"><span>서버에서 상태를 받지 못했습니다. 아래 값은 마지막으로 받은 것입니다.</span></div>'); }
+    busy = false;
+  }
+
+  function houseSvg() {
+    const v = Object.fromEntries(S.vents.map((x) => [x.id, x])), pos = (id) => (v[id] && v[id].live ? v[id].live.position : 0);
+    // 앞에서 본 온실. 천창은 용마루에서 들리고, 측창은 위에서부터 열린다
+    const roof = (s, p) => `<line x1="320" y1="62" x2="${320 + s * 78}" y2="${94.5}" stroke="var(--blue)" stroke-width="7" stroke-linecap="round" transform="rotate(${-s * p * 0.4} 320 62)"/>`;
+    const side = (x, p) => `<rect x="${x - 4}" y="136" width="8" height="96" rx="4" fill="none" stroke="var(--line)"/><rect x="${x - 4}" y="${136 + p * 0.96}" width="8" height="${96 - p * 0.96}" rx="4" fill="var(--blue)"/>`;
+    const lab = (x, y, id, a) => `<text x="${x}" y="${y}" text-anchor="${a}" font-size="13" font-weight="700" fill="var(--text-sub)">${v[id] ? esc(v[id].title) : ''} ${v[id] && v[id].live ? Math.round(pos(id)) + '%' : '–'}</text>`;
+    const left = v['side-left'] ? Number(v['side-left'].facing) : 270, w = S.sensors;
+    let wind = '<text x="320" y="180" text-anchor="middle" font-size="13" fill="var(--text-weak)">바람 값 없음</text>';
+    if (w.windDir !== null) { // 위에서 본 나침반: 왼쪽 창의 방위가 화면 왼쪽
+      const a = w.windDir - left - 90, fly = Math.min(30, 10 + w.windSpeed * 2);
+      wind = `<g transform="translate(320 178)"><circle r="40" fill="var(--surface-2)" stroke="var(--line)"/>${['북', '동', '남', '서'].map((n, i) => { const t = (i * 90 - left - 90) * Math.PI / 180; return `<text x="${Math.sin(t) * 52}" y="${-Math.cos(t) * 52 + 4}" text-anchor="middle" font-size="11" font-weight="700" fill="var(--text-weak)">${n}</text>`; }).join('')}<g transform="rotate(${a})"><line y1="${-fly}" y2="${fly - 6}" stroke="var(--warm-fg)" stroke-width="5" stroke-linecap="round"/><path d="M-9 ${fly - 8}L0 ${fly + 4}L9 ${fly - 8}Z" fill="var(--warm-fg)"/></g></g>`;
+    }
+    return `<svg viewBox="60 20 520 240" role="img" aria-label="온실 창 상태"><path d="M170 124L320 62L470 124V236H170Z" fill="none" stroke="var(--line)" stroke-width="3"/><line x1="110" y1="237" x2="530" y2="237" stroke="var(--line)" stroke-width="3"/>${side(170, pos('side-left'))}${side(470, pos('side-right'))}${roof(-1, pos('roof-left'))}${roof(1, pos('roof-right'))}${wind}${lab(156, 190, 'side-left', 'end')}${lab(484, 190, 'side-right', 'start')}${lab(212, 56, 'roof-left', 'end')}${lab(428, 56, 'roof-right', 'start')}<text x="156" y="208" text-anchor="end" font-size="12" fill="var(--text-weak)">${dirName(left)}쪽</text><text x="484" y="208" font-size="12" fill="var(--text-weak)">${dirName((left + 180) % 360)}쪽</text></svg>`;
+  }
+  const NOTE = { interval: '다음 명령까지 최소 간격을 기다립니다', fault: '오류로 쉬는 중입니다', small: '차이가 작아 움직이지 않습니다', 'unknown-position': '상태를 받지 못해 명령을 보내지 않습니다' };
+  const manual = (v) => `<div class="gh-man"><input type="range" min="0" max="100" step="5" value="${v.live ? Math.round(v.live.position) : 0}" aria-label="${esc(v.title)} 개도율"><output></output><button class="ib-btn" data-send>보내기</button></div><div class="gh-ask" hidden></div>`;
+  function renderVents() {
+    const box = $('ghVents'), key = S.vents.map((v) => v.id).join() + S.mode;
+    if (box.dataset.key !== key) {
+      box.dataset.key = key;
+      box.innerHTML = S.vents.map((v) => `<div class="card gh-vent" data-v="${esc(v.id)}"><div class="gh-vb"></div>${S.mode === 'manual' ? manual(v) : ''}</div>`).join('');
+      box.querySelectorAll('.gh-man input').forEach((i) => { i.nextElementSibling.textContent = i.value + '%'; });
+    }
+    for (const v of S.vents) {
+      const el = box.querySelector(`[data-v="${CSS.escape(v.id)}"] .gh-vb`), d = v.decision || {}, p = v.pending, l = v.live;
+      const aim = p ? p.target : S.mode === 'auto' && d.target !== null && d.target !== undefined ? d.target : null;
+      const tags = `${d.windward === true ? '<span class="gh-tag wind">바람받이</span>' : ''}${p ? `<span class="gh-tag sent">${p.attempts > 1 ? `재시도 ${p.attempts}/${p.maxAttempts}` : '동작 중'}</span>` : ''}${v.fault ? '<span class="gh-tag failed">오류</span>' : ''}`;
+      const why = p ? `${p.target}%로 움직이는 중${p.attempts > 1 ? ` — ${esc(p.error)}` : ''}` : v.fault ? esc(v.fault.text) : S.mode === 'manual' ? '수동 조작 중' : !S.ruleCount ? '규칙이 없습니다' : esc(d.reason || '') + (NOTE[v.note] ? ` · ${NOTE[v.note]}` : '');
+      html(el, `<h3>${esc(v.title)} ${tags}<b>${l ? Math.round(l.position) + '%' : '–'}</b></h3><div class="gh-track"><i style="width:${l ? l.position : 0}%"></i>${aim !== null ? `<u style="left:${aim}%" title="목표 ${aim}%"></u>` : ''}</div><div class="gh-why">${why}${l ? '' : '<br>아직 상태를 받지 못했습니다'}</div>`);
+    }
+  }
+  const CST = { sent: '보냄', retrying: '재시도 중', done: '완료', failed: '실패', superseded: '새 명령으로 대체', canceled: '취소', interrupted: '중단' };
+  function renderCmds() {
+    const open = new Set([...$('ghCmds').querySelectorAll('details[open]')].map((x) => x.dataset.c));
+    html($('ghCmds'), S.commands.length ? S.commands.map((c) => { let pl = c.payload; try { pl = JSON.stringify(JSON.parse(c.payload), null, 2); } catch {}
+      const took = c.doneAt ? Math.max(0, Math.round((Date.parse(c.doneAt) - Date.parse(c.createdAt)) / 1000)) : null;
+      return `<details class="gh-cmd" data-c="${esc(c.id)}"${open.has(c.id) ? ' open' : ''}><summary><time>${hm(c.createdAt)}</time><b>${esc(c.title)}</b><span class="gh-tag ${esc(c.status)}">${CST[c.status] || esc(c.status)}</span>${c.attempts > 1 ? `<span class="gh-tag">발행 ${c.attempts}회</span>` : ''}${took !== null ? `<time>${took}초</time>` : ''}<span class="gh-sub">${esc(c.reason)}${c.error ? ` — ${esc(c.error)}` : ''}</span></summary><pre class="gh-code">${esc(`${S.mqtt.base}/vent/${c.vent}/cmd\n${pl}`)}</pre></details>`; }).join('') : '<div class="empty">아직 보낸 명령이 없습니다</div>');
+  }
+  function renderRules() {
+    $('ghRuleCnt').textContent = S.rules.length ? `규칙 ${S.rules.length}개 · 위에 있을수록 먼저 적용` : '';
+    html($('ghRules'), S.rules.length ? S.rules.map((r) => `<div class="gh-rule ${r.enabled === false ? 'off' : ''}" data-r="${esc(r.id)}"><div><b>${esc(r.title || r.id)}</b> <span class="gh-tag${r.error ? ' failed' : ''}">${r.error ? '사용 불가' : r.mode === 'limit' ? '제한' : '개도율'}</span><p>${esc(r.text)}</p></div><button class="ib-btn" data-act="toggle">${r.enabled === false ? '켜기' : '끄기'}</button><button class="ib-btn" data-act="remove">삭제</button></div>`).join('') : '<div class="empty">규칙 인터뷰에 답하면 규칙이 만들어집니다</div>');
+  }
+  const CTL = [['tempHyst', '온도 되돌림 폭 (℃)', 0.5], ['windHyst', '풍속 되돌림 폭 (m/s)', 0.5], ['windHoldSec', '바람이 잦아든 뒤 제한 유지 (초)'], ['minIntervalSec', '같은 창의 명령 최소 간격 (초)'], ['minStep', '최소 움직임 (%)'], ['tolerance', '도착으로 보는 오차 (%)'], ['stallSec', '응답·움직임이 없으면 재시도 (초)'], ['timeoutSec', '명령 한 번의 제한 시간 (초)'], ['maxAttempts', '최대 발행 횟수'], ['faultCooldownSec', '실패한 뒤 쉬는 시간 (초)'], ['staleSec', '센서가 끊겼다고 보는 시간 (초)']];
+  $('ghCtl').innerHTML = CTL.map(([k, l, s]) => `<label>${l}<input class="gh-in" type="number" data-set="${k}" step="${s || 1}"></label>`).join('') + '<label>센서가 끊기면<select class="gh-in" data-set="onSensorLoss"><option value="hold">지금 위치 유지</option><option value="close">모두 닫기</option></select></label>';
+  $('ghPd').innerHTML = DIRS.map((n, i) => `<option value="${i * 45}">${n}</option>`).join(''); $('ghPd').value = '270';
+  function fillSettings() {
+    if (setFilled) return; setFilled = true;
+    document.querySelectorAll('[data-set]').forEach((i) => { if (i.dataset.set !== 'password') i.value = S.settings[i.dataset.set]; else i.placeholder = S.settings.hasPassword ? '저장되어 있음' : ''; });
+  }
+  function renderSim() {
+    $('ghSim').hidden = !S.sim; if (!S.sim) { simFilled = false; return; }
+    if (!simFilled || Date.now() - simAt > 4000) {   // 만지는 중이 아니면 서버 값에 맞춘다(에이전트가 바꿀 수도 있다)
+      simFilled = true; const m = S.sim;
+      document.querySelectorAll('[data-sim]').forEach((i) => { const k = i.dataset.sim; if (k === 'fix') i.checked = m.fixedIndoor !== null; else if (k === 'sensorOn') i.checked = m.sensorOn; else i.value = k === 'fixedIndoor' ? (m.fixedIndoor === null ? m.indoor : m.fixedIndoor) : m[k]; });
+      if (!$('ghFaults').contains(document.activeElement)) html($('ghFaults'), S.vents.map((v) => `<label>${esc(v.title)} 고장<select class="gh-in" data-fault="${esc(v.id)}">${[['none', '정상'], ['drop', '첫 명령을 놓침'], ['jam', '중간에 걸림'], ['dead', '응답 없음']].map(([k, l]) => `<option value="${k}"${m.faults[v.id] === k ? ' selected' : ''}>${l}</option>`).join('')}</select></label>`).join(''));
+    }
+    simLabels();
+  }
+  function simLabels() {
+    const fix = document.querySelector('[data-sim="fix"]').checked, t = document.querySelector('[data-sim="fixedIndoor"]');
+    t.disabled = !fix; if (!fix && S && S.sim) t.value = S.sim.indoor;
+    document.querySelectorAll('[data-sim="outdoor"],[data-sim="sun"]').forEach((i) => { i.disabled = fix; });
+    document.querySelectorAll('#ghSim label output').forEach((o) => { const i = o.closest('label').querySelector('input'); o.textContent = i.dataset.sim === 'windDir' ? `${dirName(Number(i.value))} ${i.value}°` : i.value; });
+  }
+  function render() {
+    document.querySelectorAll('#ghMode button').forEach((b) => b.classList.toggle('on', b.dataset.m === S.mode));
+    $('ghConn').classList.toggle('ok', S.mqtt.connected); $('ghConn').lastElementChild.textContent = `${S.mqtt.kind === 'sim' ? '시뮬레이터' : S.mqtt.url} ${S.mqtt.connected ? '연결됨' : '연결 안 됨'}`;
+    html($('ghAlarms'), S.alarms.map((a) => `<div class="gh-alarm ${a.level === 'warn' ? 'warn' : ''}"><span>${esc(a.text)}</span>${a.vent ? `<button class="ib-btn" data-clear="${esc(a.vent)}">오류 지우기</button>` : ''}</div>`).join(''));
+    $('ghNoRule').hidden = !!S.rules.length;
+    html($('ghHouse'), houseSvg());
+    const num = (id, v, unit, off) => { $(id).classList.toggle('off', off); html($(id).querySelector('b'), off ? '–' : `${v}<small>${unit}</small>`); }, w = S.sensors;
+    num('ghTemp', w.temp, '℃', w.temp === null); num('ghWind', w.windSpeed, 'm/s', w.windSpeed === null); num('ghDir', w.windDir === null ? '' : dirName(w.windDir), w.windDir === null ? '' : Math.round(w.windDir) + '°', w.windDir === null);
+    renderVents(); renderSim(); renderRules(); renderCmds(); fillSettings();
+    $('ghTopics').textContent = `구독  ${S.mqtt.base}/sensor/indoor    {"temp": 27.4}\n구독  ${S.mqtt.base}/sensor/outdoor   {"windSpeed": 3.2, "windDir": 270}\n구독  ${S.mqtt.base}/vent/<창>/state  {"position": 48, "moving": true, "cmdId": "…", "error": null}\n발행  ${S.mqtt.base}/vent/<창>/cmd    {"cmdId": "…", "ventId": "roof-left", "action": "set", "target": 50, "attempt": 1, …}\n창    ${S.vents.map((v) => v.id).join(', ')}${S.mqtt.url ? `\n주소  ${S.mqtt.url}` : ''}${S.mqtt.badMessages ? `\n읽지 못한 메시지 ${S.mqtt.badMessages}개` : ''}`;
+  }
+
+  /* ---- 규칙 인터뷰: 한 번에 한 질문, 마지막에 규칙을 보고 적용 ---- */
+  async function startIv() {
+    openSub('work', 'rules');
+    try { const j = await getJSON('/api/gh/interview'); iv = { qs: j.questions, a: { ...(j.answers || {}) }, i: 0, err: '', rules: null }; drawIv(); } catch { say('인터뷰를 불러오지 못했습니다'); }
+  }
+  function drawIv() {
+    $('ghIv').hidden = !iv; $('ghRuleBox').hidden = !!iv; if (!iv) return;
+    const n = iv.qs.length;
+    if (iv.rules) {
+      $('ghIv').innerHTML = `<h3>이렇게 움직입니다</h3><p class="gh-sub">적용하면 이전 인터뷰에서 만든 규칙을 바꿉니다.</p>${iv.rules.map((r) => `<div class="gh-rule"><div><b>${esc(r.title)}</b><p>${esc(r.text)}</p></div></div>`).join('')}${S && S.mode === 'auto' ? `<p class="gh-sub" style="margin-top:10px">지금 자동 모드라서 적용하면 ${S.mqtt.kind === 'sim' ? '가상 온실의 창이' : '<b>실제 창이</b>'} 바로 움직일 수 있습니다.</p>` : ''}<div class="gh-acts"><button class="gh-ok" data-k="apply">이 규칙 적용</button><button class="ib-btn" data-k="back">이전</button><button class="ib-btn" data-k="quit">그만두기</button><span class="gh-msg bad">${esc(iv.err)}</span></div>`;
+      return;
+    }
+    const q = iv.qs[iv.i], val = iv.a[q.id] !== undefined ? iv.a[q.id] : q.example;
+    $('ghIv').innerHTML = `<div class="gh-steps"><i style="width:${(iv.i / n) * 100}%"></i></div><p class="gh-sub" style="margin-top:10px">${iv.i + 1} / ${n}</p><h3>${esc(q.q)}</h3><p class="gh-sub">${esc(q.why)}</p>${q.type === 'choice' ? `<div class="stseg" style="margin-top:14px">${q.options.map(([k, l]) => `<button data-opt="${k}" class="${String(val) === k ? 'on' : ''}" aria-pressed="${String(val) === k}">${esc(l)}</button>`).join('')}</div>` : `<div class="gh-qrow"><input class="gh-in" type="number" step="any" value="${esc(String(val))}" aria-label="${esc(q.q)}"> ${q.unit}</div>`}${iv.a[q.id] === undefined ? '<p class="gh-sub" style="margin-top:8px">채워진 값은 예시입니다. 작물과 시설에 맞게 바꿔 주세요.</p>' : ''}<div class="gh-acts"><button class="gh-ok" data-k="next">다음</button>${iv.i ? '<button class="ib-btn" data-k="back">이전</button>' : ''}<button class="ib-btn" data-k="quit">그만두기</button><span class="gh-msg bad">${esc(iv.err)}</span></div>`;
+    const inp = $('ghIv').querySelector('input'); if (inp) { inp.focus(); inp.select(); }
+  }
+  async function ivKey(k) {
+    iv.err = '';
+    if (k === 'quit') { iv = null; return drawIv(); }
+    if (k === 'back') { if (iv.rules) iv.rules = null; else iv.i--; return drawIv(); }
+    if (k === 'apply') { try { await post('interview', { answers: iv.a, apply: true }); iv = null; setFilled = false; drawIv(); await refresh(); } catch (e) { iv.err = e.message; drawIv(); } return; }
+    const q = iv.qs[iv.i], el = $('ghIv');
+    const v = q.type === 'choice' ? (el.querySelector('[data-opt].on') || { dataset: {} }).dataset.opt : el.querySelector('input').value;
+    if (v === undefined || v === '') { iv.err = '답을 골라 주세요'; return drawIv(); }
+    iv.a[q.id] = q.type === 'choice' ? v : Number(v);
+    let errs = {}; try { const r = await post('interview', { answers: iv.a }); if (iv.i === iv.qs.length - 1) iv.rules = r.rules; } catch (e) { errs = e.errors || { [q.id]: e.message }; }
+    if (errs[q.id]) { iv.err = errs[q.id]; return drawIv(); }                                // 이 답이 틀렸다
+    if (!iv.rules) { const bad = iv.qs.findIndex((x) => errs[x.id]); iv.i = iv.i < iv.qs.length - 1 ? iv.i + 1 : Math.max(0, bad); if (bad >= 0 && iv.i === bad && iv.a[iv.qs[bad].id] !== undefined) iv.err = errs[iv.qs[bad].id]; }
+    drawIv();
+  }
+  $('ghIv').addEventListener('click', (e) => { const o = e.target.closest('[data-opt]'), k = e.target.closest('[data-k]'); if (o) { $('ghIv').querySelectorAll('[data-opt]').forEach((b) => { b.classList.toggle('on', b === o); b.setAttribute('aria-pressed', b === o); }); } else if (k) ivKey(k.dataset.k); });
+  $('ghIv').addEventListener('keydown', (e) => { if (e.key === 'Enter' && e.target.matches('input')) { e.preventDefault(); ivKey('next'); } });
+
+  /* ---- 조작 ---- */
+  $('workArea').addEventListener('click', async (e) => {
+    const t = e.target.closest('button'); if (!t) return;
+    try {
+      if (t.dataset.iv !== undefined) return startIv();
+      if (t.dataset.m) { await post('mode', { mode: t.dataset.m }); return refresh(); }
+      if (t.dataset.clear) { await post('clear-fault', { vent: t.dataset.clear }); return refresh(); }
+      if (t.dataset.act) {
+        if (t.dataset.act === 'remove' && !t.dataset.sure) { t.dataset.sure = '1'; t.textContent = '정말 삭제'; setTimeout(() => { delete t.dataset.sure; t.textContent = '삭제'; }, 3000); return; }
+        await post('rule', { id: t.closest('[data-r]').dataset.r, action: t.dataset.act }); $('ghRules')._h = ''; return refresh();
+      }
+      const card = t.closest('[data-v]');
+      if (card && (t.dataset.send !== undefined || t.dataset.force !== undefined)) {
+        const ask = card.querySelector('.gh-ask');
+        try { await post('command', { vent: card.dataset.v, target: Number(card.querySelector('.gh-man input').value), force: t.dataset.force !== undefined }); ask.hidden = true; }
+        catch (x) { ask.hidden = false; ask.innerHTML = `${esc(x.message)}${x.needsConfirm ? '<div><button class="ib-btn" data-force>그래도 열기</button><button class="ib-btn" data-no>취소</button></div>' : ''}`; }
+        return refresh();
+      }
+      if (card && t.dataset.no !== undefined) card.querySelector('.gh-ask').hidden = true;
+    } catch (x) { say(x.message); }
+  });
+  $('ghVents').addEventListener('input', (e) => { if (e.target.matches('.gh-man input')) e.target.nextElementSibling.textContent = e.target.value + '%'; });
+  let simT = null;
+  $('ghSim').addEventListener('input', (e) => {
+    const i = e.target, body = {};
+    if (i.dataset.fault) body.faults = { [i.dataset.fault]: i.value };
+    else if (i.dataset.sim === 'sensorOn') body.sensorOn = i.checked;
+    else if (i.dataset.sim === 'fix' || i.dataset.sim === 'fixedIndoor') body.fixedIndoor = document.querySelector('[data-sim="fix"]').checked ? Number(document.querySelector('[data-sim="fixedIndoor"]').value) : null;
+    else body[i.dataset.sim] = Number(i.value);
+    simAt = Date.now(); simLabels(); clearTimeout(simT); const go = () => post('sim', body).catch((x) => say(x.message)); if (i.type === 'range') simT = setTimeout(go, 150); else go();
+  });
+  $('ghPv').onclick = async () => {
+    const out = $('ghPvOut'), n = (id) => ($(id).value === '' ? null : Number($(id).value));
+    try { const r = await post('preview', { temp: n('ghPt'), windSpeed: n('ghPw'), windDir: n('ghPd') });
+      out.innerHTML = r.decisions.map((d) => { const v = S.vents.find((x) => x.id === d.ventId); return `<div class="gh-rule"><div><b>${esc(v ? v.title : d.ventId)} → ${d.target !== null ? d.target + '%' : d.cap < 100 ? `최대 ${d.cap}%` : '유지'}</b> ${d.windward ? '<span class="gh-tag wind">바람받이</span>' : ''}<p>${esc(d.reason)}</p></div></div>`; }).join('');
+    } catch (x) { out.innerHTML = `<p class="gh-msg bad" style="margin-top:10px">${esc(x.message)}</p>`; }
+  };
+  $('ghSave').onclick = async () => {
+    const b = {}, m = $('ghSetMsg'); m.className = 'gh-msg';
+    document.querySelectorAll('[data-set]').forEach((i) => { const k = i.dataset.set; if (i.type === 'number') b[k] = i.value === '' ? NaN : Number(i.value); else if (k !== 'password' || i.value) b[k] = i.value; });
+    try { const r = await post('settings', b); m.textContent = r.reconnecting ? '저장했습니다. 다시 연결합니다.' : '저장했습니다.'; document.querySelector('[data-set="password"]').value = ''; setFilled = simFilled = false; refresh(); }
+    catch (x) { m.className = 'gh-msg bad'; m.textContent = x.message; }
+  };
+  setInterval(refresh, 1500); document.addEventListener('visibilitychange', refresh);
+  document.querySelectorAll('.topnav .tab[data-view="work"]').forEach((b) => b.addEventListener('click', () => setTimeout(refresh, 0)));
+  setTimeout(refresh, 0);
+})();
 </script>
 </body>
 </html>
